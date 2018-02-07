@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Share Revenue Contract</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <script src="./app.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+          data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">SRC</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index.html">Share Revenue Contract<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-8">
+
+      <hr />
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Deposit Ether</h3>
+            </div>
+            <div class="panel-body">
+
+              <form>
+                <div class="form-group">
+                  <label for="inputAmountDepositEther">Amount in Ether</label>
+                  <input type="number" name="inputAmountDepositEther" class="form-control"
+                       id="inputAmountDepositEther" placeholder="e.g., 95">
+                </div>
+
+              </form>
+            </div>
+            <div class="panel-footer"><button type="button" class="btn btn-default" onclick="App.depositEther();return false;">Deposit
+              Ether
+            </button></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-heading">Update Party Adresses</div>
+            <div class="panel-body">
+              <form>
+                <div class="form-group">
+                  <label for="first_party_address">First party address</label>
+                  <input type="text" class="form-control" id="first_party_address"
+                         name="first_party_address" placeholder="e.g. 0x123ABde44...">
+                </div>
+                <div class="form-group">
+                  <label for="second_party_address">Second party address</label>
+                  <input type="text" class="form-control" id="second_party_address"
+                         name="second_party_address" placeholder="e.g. 0x123ABde44...">
+                </div>
+                <button type="button" class="btn btn-default" onclick="App.updatePartyAdress();return false;">
+                    Update Party Adresses
+                </button>
+              </form>
+            </div>
+            <div class="panel-footer">Addresses</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="panel panel-default panel-primary">
+            <div class="panel-heading">Update Share Amount</div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group">
+                        <label for="x">Amount in %</label>
+                        <input type="number" name="x" class="form-control"
+                               id="x" placeholder="e.g., 40%">
+                    </div>
+                    <button type="button" class="btn btn-default" onclick="App.updateShareAmountForEther();return false;">
+                        Update Share Amount
+                    </button>
+                </form>
+            </div>
+            <div class="panel-footer">% for first party</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4" style="background-color: #eee; min-height: 100vh;">
+      <h3>Events from the Contract</h3>
+      <div id="contractEvents"></div>
+        <h3>Status from our Javascript</h3>
+        <span id="status"></span>
+        <h3>Important Information</h3>
+        <span id="importantInformation"></span>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+  window.addEventListener('load', function () {
+    App.initContract();
+  });
+</script>
+
+</body>
+</html>
